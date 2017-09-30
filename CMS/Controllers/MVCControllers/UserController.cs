@@ -7,6 +7,7 @@ using System.Web.Mvc;
 
 namespace CMS.Controllers.MVCControllers
 {
+    [Authorize]
     public class UserController : ParentMVCController
     {
         public UserController(IUserSession userSession):base(userSession){ }
@@ -15,6 +16,7 @@ namespace CMS.Controllers.MVCControllers
         {
             return View();
         }
+        [HttpPost]
         public ActionResult AddUser(AddUserViewModel model)
         {
             return View();

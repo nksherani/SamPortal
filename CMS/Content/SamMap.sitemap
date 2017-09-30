@@ -3,8 +3,8 @@
   <siteMapNode title="Home" controller="Home" action="Index">
     <siteMapNode title="Home" controller="Home" action="Index"/>
     <siteMapNode title="User Management">
-      <siteMapNode title="User Management" controller="User" action="Users"/>
-      <siteMapNode title="User Management" controller="User" action="AddUser"/>
+      <siteMapNode title="All Users" controller="User" action="Users"/>
+      <siteMapNode title="Add User" controller="User" action="AddUser"/>
     </siteMapNode>
     <!--<siteMapNode title="Login" controller="Account" action="Login"/>
     <siteMapNode title="Logout" controller="Account" action="Logout"/-->>

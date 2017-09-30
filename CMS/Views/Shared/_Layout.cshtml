@@ -13,13 +13,25 @@
 </head>
     <body>
         
-        @Html.Action("SetMenu", "Shared")
-       @(Html.Kendo().Menu()
+        <div style="float:left">
+            @Html.Action("SetMenu", "Shared")
+            @(Html.Kendo().Menu()
       .Name("menu")
       .BindTo("SamMap")
       .SecurityTrimming(s => s.HideParent(true))
             )
-
+        </div>
+        <div style="float:right">
+            @if (((System.Security.Claims.ClaimsPrincipal)HttpContext.Current.User).FindFirst(System.Security.Claims.ClaimTypes.Name) != null)
+            {
+                var username = ((System.Security.Claims.ClaimsPrincipal)HttpContext.Current.User).FindFirst(System.Security.Claims.ClaimTypes.Name).Value;
+                @Html.ActionLink("Logout", "Logout", "Account") @username
+            }
+            else
+            {
+                @Html.ActionLink("Login", "Login", "Account")
+            }
+        </div>
 
         <div id="body">
                 @RenderBody()
