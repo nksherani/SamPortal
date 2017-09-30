@@ -1,8 +1,12 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <siteMap>
   <siteMapNode title="Home" controller="Home" action="Index">
-    <siteMapNode title="User Management" controller="User" action="Users"/>
-    <siteMapNode title="Login" controller="Account" action="Login"/>
-    <siteMapNode title="Logout" controller="Account" action="Logout"/>
+    <siteMapNode title="Home" controller="Home" action="Index"/>
+    <siteMapNode title="User Management">
+      <siteMapNode title="User Management" controller="User" action="Users"/>
+      <siteMapNode title="User Management" controller="User" action="AddUser"/>
+    </siteMapNode>
+    <!--<siteMapNode title="Login" controller="Account" action="Login"/>
+    <siteMapNode title="Logout" controller="Account" action="Logout"/-->>
   </siteMapNode>
 </siteMap>
