@@ -1,4 +1,4 @@
-﻿@model CMS.Models.AddUserViewModel
+﻿@model ViewModels.Models.AddUserViewModel
 
 @{
     ViewBag.Title = "Users";
@@ -6,7 +6,7 @@
 }
 
 <h2>Users</h2>
-@(Html.Kendo().Grid<CMS.Models.AddUserViewModel>()
+@(Html.Kendo().Grid<ViewModels.Models.AddUserViewModel>()
     .Name("grid")
     .Columns(column =>
     {
@@ -31,7 +31,7 @@
             .ButtonCount(5))
         .DataSource(dataSource => dataSource
             .Ajax()
-            .Read(read => read.Action("Users", "User"))
+            .Read(read => read.Action("GetUsers", "User"))
             .PageSize(20)
         )
     )

@@ -1,5 +1,4 @@
 ﻿using Antlr.Runtime;
-using CMS.Models;
 using Microsoft.Ajax.Utilities;
 using Microsoft.Owin.Security;
 using Newtonsoft.Json;
@@ -12,6 +11,7 @@ using System.Net.Http;
 using System.Security.Claims;
 using System.Web;
 using System.Web.Mvc;
+using ViewModels.Models;
 
 namespace CMS.Controllers.MVCControllers
 {
@@ -58,6 +58,7 @@ namespace CMS.Controllers.MVCControllers
                 var claims = new[]
                 {
                     new Claim(ClaimTypes.Name, model.Username),
+                    new Claim(ClaimTypes.NameIdentifier,model.Username),
                     new Claim("AcessToken", string.Format("Bearer {0}", token.access_token)),
                 };
 

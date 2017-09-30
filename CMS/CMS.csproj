@@ -198,8 +198,6 @@
     <Compile Include="Controllers\MVCControllers\SharedController.cs" />
     <Compile Include="Controllers\MVCControllers\TestController.cs" />
     <Compile Include="Controllers\MVCControllers\UserController.cs" />
-    <Compile Include="Models\LoginModel.cs" />
-    <Compile Include="Models\UserViewModel.cs" />
     <Compile Include="Startup.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Utilities\GlobalVariables.cs" />
@@ -652,7 +650,9 @@
     <Content Include="Content\kendo\2017.2.621\fonts\glyphs\WebComponentsIcons.woff" />
     <Content Include="Content\kendo\2017.2.621\images\kendoui.ttf" />
     <Content Include="Content\kendo\2017.2.621\images\kendoui.woff" />
-    <Content Include="Content\SamMap.sitemap" />
+    <Content Include="Content\SamMap.sitemap">
+      <SubType>Designer</SubType>
+    </Content>
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
@@ -936,13 +936,13 @@
     <Content Include="Scripts\kendo\2017.2.621\kendo.window.min.js.map" />
     <Content Include="Views\Test\Index.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\Account\Login.cshtml" />
     <Content Include="Views\Account\LogOut.cshtml" />
     <Content Include="Views\Test\Test.cshtml" />
     <Content Include="Views\Shared\_Layout - Copy.cshtml" />
     <Content Include="Views\Home\Index - Copy.cshtml" />
     <Content Include="Views\User\AddUser.cshtml" />
     <Content Include="Views\User\Users.cshtml" />
+    <Content Include="Views\Account\Login.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\Site.css" />
@@ -965,6 +965,10 @@
     <ProjectReference Include="..\AspNetIdentity.WebApi\AspNetIdentity.WebApi.csproj">
       <Project>{92c1ef80-4141-40d4-9878-be54e723fb2f}</Project>
       <Name>AspNetIdentity.WebApi</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ViewModels\ViewModels.csproj">
+      <Project>{ad23be94-03e2-4978-aa0e-876ac19fd0d0}</Project>
+      <Name>ViewModels</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>

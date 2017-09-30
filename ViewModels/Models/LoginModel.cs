@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
 
-namespace CMS.Models
+namespace ViewModels.Models
 {
     public class LoginModel
     {

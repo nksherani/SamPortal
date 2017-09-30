@@ -27,6 +27,7 @@ namespace CMS.Controllers.MVCControllers
     public interface IUserSession
     {
         string Username { get; }
+        string identifier { get; }
         string BearerToken { get; }
     }
 
@@ -36,6 +37,10 @@ namespace CMS.Controllers.MVCControllers
         public string Username
         {
             get { return ((ClaimsPrincipal)HttpContext.Current.User).FindFirst(ClaimTypes.Name) == null ? null : ((ClaimsPrincipal)HttpContext.Current.User).FindFirst(ClaimTypes.Name).Value; }
+        }
+        public string identifier
+        {
+            get { return ((ClaimsPrincipal)HttpContext.Current.User).FindFirst(ClaimTypes.NameIdentifier) == null ? null : ((ClaimsPrincipal)HttpContext.Current.User).FindFirst(ClaimTypes.Name).Value; }
         }
 
         public string BearerToken

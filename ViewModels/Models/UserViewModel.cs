@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
 
-namespace CMS.Models
+namespace ViewModels.Models
 {
     public class AddUserViewModel
     {
@@ -16,7 +16,7 @@ namespace CMS.Models
         [Required(ErrorMessage = "Password is required")]
         [DataType(DataType.Password)]
         [MaxLength(100)]
-        [MinLength(6,ErrorMessage ="")]
+        [MinLength(6,ErrorMessage ="Password length must be greater than or equal to 6")]
         public string Password { get; set; }
 
         [MaxLength(100)]
@@ -32,10 +32,10 @@ namespace CMS.Models
         [Range(0,1)]
         public int Active { get; set; }
 
-        [Required(ErrorMessage = "Created Date is required")]
+        //[Required(ErrorMessage = "Created Date is required")]
         public System.DateTime CreatedDate { get; set; }
 
-        [Required(ErrorMessage = "Created By is required")]
+        //[Required(ErrorMessage = "Created By is required")]
         [MaxLength(100)]
         public string CreatedBy { get; set; }
 

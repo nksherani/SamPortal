@@ -1,4 +1,4 @@
-﻿@model CMS.Models.LoginModel
+﻿@model ViewModels.Models.LoginModel
 
 @{
     Layout = null;
@@ -12,21 +12,21 @@
     <title>Login</title>
 </head>
 <body>
-    <div> 
-        @using (Html.BeginForm("Login","Account",FormMethod.Post))
+    <div>
+        @using (Html.BeginForm("Login", "Account", FormMethod.Post))
         {
             @Html.AntiForgeryToken()
             @Html.ValidationSummary()
             <div>
-                @Html.LabelFor(x=>x.Username): @Html.TextBoxFor(x=>x.Username, new { Placeholder = "Username . . ." }) @Html.ValidationMessageFor(x=>x.Username)
+                @Html.LabelFor(x => x.Username): @Html.TextBoxFor(x => x.Username, new { Placeholder = "Username . . ." }) @Html.ValidationMessageFor(x => x.Username)
             </div>
             <div>
-                @Html.LabelFor(x => x.Password): @Html.PasswordFor(x => x.Password,new {Placeholder="Password . . ." }) @Html.ValidationMessageFor(x => x.Password)
+                @Html.LabelFor(x => x.Password): @Html.PasswordFor(x => x.Password, new { Placeholder = "Password . . ." }) @Html.ValidationMessageFor(x => x.Password)
             </div>
             <div>
                 <input type="submit" value="Login" />
             </div>
-            
+
         }
     </div>
 </body>

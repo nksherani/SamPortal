@@ -1,4 +1,4 @@
-﻿@model CMS.Models.AddUserViewModel
+﻿@model ViewModels.Models.AddUserViewModel
 
 @{
     ViewBag.Title = "AddUser";
@@ -6,4 +6,14 @@
 }
 
 <h2>AddUser</h2>
-
+@using(Html.BeginForm("AddUser","User",FormMethod.Post)){
+@Html.AntiForgeryToken();
+@Html.ValidationSummary();
+@Html.LabelFor(x => x.Username) @: @Html.TextBoxFor(x => x.Username) @Html.ValidationMessageFor(x => x.Username)
+@Html.LabelFor(x => x.FirstName) @: @Html.TextBoxFor(x => x.FirstName) @Html.ValidationMessageFor(x => x.FirstName)
+@Html.LabelFor(x => x.MiddleName) @: @Html.TextBoxFor(x => x.MiddleName) @Html.ValidationMessageFor(x => x.MiddleName)
+@Html.LabelFor(x => x.LastName) @: @Html.TextBoxFor(x => x.LastName) @Html.ValidationMessageFor(x => x.LastName)
+@Html.LabelFor(x => x.Password) @: @Html.TextBoxFor(x => x.Password) @Html.ValidationMessageFor(x => x.Password)
+@Html.LabelFor(x => x.DateOfBirth) @: @Html.Kendo().DatePickerFor(x=>x.DateOfBirth) @Html.ValidationMessageFor(x => x.DateOfBirth)
+<input type="submit" value="Add New User" />
+}
