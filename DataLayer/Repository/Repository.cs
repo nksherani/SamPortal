@@ -18,7 +18,10 @@ namespace DataLayer.Repository
         {
             this.context = context;
         }
-
+        public IQueryable<T> GetAll()
+        {
+            return this.Entities.AsQueryable();
+        }
         public T GetById(object id)
         {
             return this.Entities.Find(id);
