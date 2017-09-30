@@ -1,0 +1,33 @@
+﻿@model CMS.Models.LoginModel
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Login</title>
+</head>
+<body>
+    <div> 
+        @using (Html.BeginForm("Login","Account",FormMethod.Post))
+        {
+            @Html.AntiForgeryToken()
+            @Html.ValidationSummary()
+            <div>
+                @Html.LabelFor(x=>x.Username): @Html.TextBoxFor(x=>x.Username, new { Placeholder = "Username . . ." }) @Html.ValidationMessageFor(x=>x.Username)
+            </div>
+            <div>
+                @Html.LabelFor(x => x.Password): @Html.PasswordFor(x => x.Password,new {Placeholder="Password . . ." }) @Html.ValidationMessageFor(x => x.Password)
+            </div>
+            <div>
+                <input type="submit" value="Login" />
+            </div>
+            
+        }
+    </div>
+</body>
+</html>
