@@ -12,36 +12,17 @@
 	<script src="@Url.Content("~/Scripts/kendo/2017.2.621/kendo.all.min.js")"></script>
 </head>
     <body>
-        <header>
-            <div class="content-wrapper">
-                <div class="float-left">
-                    <p class="site-title">@Html.ActionLink("your logo here", "Index", "Home")</p>
-                </div>
-                <div class="float-right">
-                    <nav>
-                        <ul id="menu">
-                            <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                            <li>@Html.ActionLink("About", "About", "Home")</li>
-                            <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
-                            @if (((System.Security.Claims.ClaimsPrincipal)HttpContext.Current.User).FindFirst(System.Security.Claims.ClaimTypes.Name) != null)
-                            {
-                                var username = ((System.Security.Claims.ClaimsPrincipal)HttpContext.Current.User).FindFirst(System.Security.Claims.ClaimTypes.Name).Value;
-                                <li>@Html.ActionLink("Logout", "Logout", "Account") @username</li>
-                            }
-                            else
-                            {
-                                <li>@Html.ActionLink("Login", "Login", "Account")</li>
-                            }
-                        </ul>
-                    </nav>
-                </div>
-            </div>
-        </header>
+        
+        @Html.Action("SetMenu", "Shared")
+       @(Html.Kendo().Menu()
+      .Name("menu")
+      .BindTo("SamMap")
+      .SecurityTrimming(s => s.HideParent(true))
+            )
+
+
         <div id="body">
-            @RenderSection("featured", required: false)
-            <section class="content-wrapper main-content clear-fix">
                 @RenderBody()
-            </section>
         </div>
 
         <footer>

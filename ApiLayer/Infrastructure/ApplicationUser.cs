@@ -12,18 +12,18 @@ namespace ApiLayer.Infrastructure
 {
     public class ApplicationUser : IdentityUser
     {
-        [Required]
+        //[Required]
         [MaxLength(100)]
         public string FirstName { get; set; }
 
-        [Required]
+        //[Required]
         [MaxLength(100)]
         public string LastName { get; set; }
 
-        [Required]
+        //[Required]
         public byte Level { get; set; }
 
-        [Required]
+        //[Required]
         public DateTime JoinDate { get; set; }
 
         public async Task<ClaimsIdentity> GenerateUserIdentityAsync(UserManager<ApplicationUser> manager, string authenticationType)

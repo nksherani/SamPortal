@@ -29,7 +29,7 @@ namespace AspNetIdentity.WebApi.Infrastructure
             //Configure validation logic for passwords
             appUserManager.PasswordValidator = new PasswordValidator
             {
-                RequiredLength = 8,
+                RequiredLength = 6,
                 //RequireNonLetterOrDigit = true,
                 //RequireDigit = false,
                 //RequireLowercase = true,

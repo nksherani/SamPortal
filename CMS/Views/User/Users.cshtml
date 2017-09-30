@@ -1,0 +1,38 @@
+﻿@model CMS.Models.AddUserViewModel
+
+@{
+    ViewBag.Title = "Users";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Users</h2>
+@(Html.Kendo().Grid<CMS.Models.AddUserViewModel>()
+    .Name("grid")
+    .Columns(column =>
+    {
+        column.Bound(m => m.UserId).Title("User Id");
+        column.Bound(m => m.Username).Title("Username");
+        column.Bound(m => m.FirstName).Title("First Name");
+        column.Bound(m => m.MiddleName).Title("Middle Name");
+        column.Bound(m => m.LastName).Title("Last Name");
+        column.Bound(m => m.Active).Title("Status");
+        column.Bound(m => m.CreatedDate).Title("Created Date");
+        column.Bound(m => m.CreatedBy).Title("Created By");
+        column.Bound(m => m.DateOfBirth).Title("Date Of Birth");
+
+    }
+    )
+    .Scrollable()
+        .Groupable()
+        .Sortable()
+        .Pageable(pageable => pageable
+            .Refresh(true)
+            .PageSizes(true)
+            .ButtonCount(5))
+        .DataSource(dataSource => dataSource
+            .Ajax()
+            .Read(read => read.Action("Users", "User"))
+            .PageSize(20)
+        )
+    )
+

@@ -16,14 +16,9 @@ using System.Web.Mvc;
 namespace CMS.Controllers.MVCControllers
 {
     [Authorize]
-    public class AccountController : Controller
+    public class AccountController : ParentMVCController
     {
-        private readonly IUserSession _userSession;
-
-        public AccountController(IUserSession userSession)
-        {
-            _userSession = userSession;
-        }
+        public AccountController(IUserSession userSession):base(userSession){ }
         [AllowAnonymous]
         public ActionResult Login()
         {

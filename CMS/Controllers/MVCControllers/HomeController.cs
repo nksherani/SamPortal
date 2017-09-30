@@ -12,18 +12,10 @@ using System.Web.Mvc;
 namespace CMS.Controllers.MVCControllers
 {
     [AllowAnonymous]
-    public class HomeController : Controller
+    public class HomeController : ParentMVCController
     {
 
-        private readonly IUserSession _userSession;
-
-        public HomeController(IUserSession userSession)
-        {
-            try {
-                _userSession = userSession;
-            }
-            catch (Exception ex) { } 
-        }
+        public HomeController(IUserSession userSession):base(userSession){}
 
         // GET: Home
         public ActionResult Index()
@@ -36,24 +28,5 @@ namespace CMS.Controllers.MVCControllers
     }
 
 
-    public interface IUserSession
-    {
-        string Username { get; }
-        string BearerToken { get; }
-    }
-
-    public class UserSession : IUserSession
-    {
-
-        public string Username
-        {
-            get { return ((ClaimsPrincipal)HttpContext.Current.User).FindFirst(ClaimTypes.Name)==null?null:((ClaimsPrincipal)HttpContext.Current.User).FindFirst(ClaimTypes.Name).Value; }
-        }
-
-        public string BearerToken
-        {
-            get { return ((ClaimsPrincipal)HttpContext.Current.User).FindFirst("AcessToken")==null?null: ((ClaimsPrincipal)HttpContext.Current.User).FindFirst("AcessToken").Value; }
-        }
-
-    }
+    
 }

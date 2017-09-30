@@ -11,14 +11,10 @@ using Newtonsoft.Json;
 namespace CMS.Controllers.MVCControllers
 {
     [Authorize]
-    public class TestController : Controller
+    public class TestController : ParentMVCController
     {
-        private readonly IUserSession _userSession;
+        public TestController(IUserSession userSession):base(userSession){ }
 
-        public TestController(IUserSession userSession)
-        {
-            _userSession = userSession;
-        }
         // GET: Test
         //[Authorize]
         public ActionResult Index()

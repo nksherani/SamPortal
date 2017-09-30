@@ -23,7 +23,7 @@ namespace DataLayer
         public System.DateTime Created_Date { get; set; }
         public string Created_By { get; set; }
         public Nullable<System.DateTime> Last_Updated_Date { get; set; }
-        public string Updated_By { get; set; }
+        public string Last_Updated_By { get; set; }
         public Nullable<System.DateTime> Date_Of_Birth { get; set; }
     }
 }
