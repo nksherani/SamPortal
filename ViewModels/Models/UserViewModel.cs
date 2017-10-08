@@ -13,11 +13,22 @@ namespace ViewModels.Models
         [MaxLength(100)]
         public string Username { get; set; }
 
+        [Required(ErrorMessage = "Email Address is required")]
+        [MaxLength(100)]
+        [DataType(DataType.EmailAddress,ErrorMessage ="Email Address is not valid")]
+        public string Email { get; set; }
+
         [Required(ErrorMessage = "Password is required")]
         [DataType(DataType.Password)]
         [MaxLength(100)]
         [MinLength(6,ErrorMessage ="Password length must be greater than or equal to 6")]
         public string Password { get; set; }
+
+        [Compare("Password",ErrorMessage ="Both passwords must match")]
+        [DataType(DataType.Password)]
+        [MaxLength(100)]
+        [MinLength(6, ErrorMessage = "Password length must be greater than or equal to 6")]
+        public string ConfirmPassword { get; set; }
 
         [MaxLength(100)]
         public string FirstName { get; set; }

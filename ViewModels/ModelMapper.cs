@@ -34,5 +34,27 @@ namespace ViewModels
             }
             return (Entity)entityObject;
         }
+        public static Model ToModelView(Entity entity)
+        {
+            Type ModelType = Type.GetType(typeof(Model).AssemblyQualifiedName);
+            Type EntityType = Type.GetType(typeof(Entity).AssemblyQualifiedName);
+            Object modelObject = Activator.CreateInstance(ModelType);
+            var modelProperties = ModelType.GetProperties();
+            var entityProperties = EntityType.GetProperties();
+            foreach (var ModelProperty in modelProperties)
+            {
+                string ModelPropertyName = ModelProperty.Name.ToString().Replace("-", string.Empty).ToLower();
+                foreach (var EntityProperty in entityProperties)
+                {
+                    string EntityPropertyName = EntityProperty.Name.ToString().Replace("_", string.Empty).ToLower();
+                    if (ModelPropertyName == EntityPropertyName)
+                    {
+                        ModelProperty.SetValue(modelObject, EntityProperty.GetValue(entity));
+                        break;
+                    }
+                }
+            }
+            return (Model)modelObject;
+        }
     }
 }

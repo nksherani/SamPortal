@@ -2,6 +2,7 @@
 using CMS.Controllers;
 using Microsoft.Owin;
 using Microsoft.Owin.Security.Cookies;
+using Newtonsoft.Json;
 using Owin;
 using System;
 using System.Collections.Generic;
@@ -31,6 +32,8 @@ namespace CMS
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
+            //GlobalConfiguration.Configuration.Formatters.JsonFormatter.SerializerSettings
+            //    .Re‌​ferenceLoopHandling = ReferenceLoopHandling.Ignore;
             var httpConfiguration = CreateHttpConfiguration();
             AntiForgeryConfig.UniqueClaimTypeIdentifier = ClaimTypes.Name;
             RegisterCustomControllerFactory();

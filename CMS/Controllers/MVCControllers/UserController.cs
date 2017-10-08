@@ -1,5 +1,6 @@
 ﻿using ApiLayer.Controllers;
 using Kendo.Mvc.UI;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -35,14 +36,22 @@ namespace CMS.Controllers.MVCControllers
             return View();
         }
         [HttpPost]
-        public ActionResult GetUsers([DataSourceRequest] DataSourceRequest request)
+        public JsonResult GetUsers([DataSourceRequest] DataSourceRequest request)
         {
-            //ViewBag.Token = _userSession.BearerToken;
-            //ViewBag.Username = _userSession.Username;
-            var users = new UserApiController().GetAllUsers(request);
-            //var user = (AddUserViewModel)users;
-            //mapping needs to be corrected
-            return View(users);
+            var controller = new UserApiController();
+            controller.Request = new System.Net.Http.HttpRequestMessage();
+            controller.Configuration = new System.Web.Http.HttpConfiguration();
+            DataSourceResult users = controller.GetAllUsers(request);
+            //var json = (System.Web.Http.Results.OkNegotiatedContentResult<System.Collections.Generic.List<AddUserViewModel>>)Json(users).Data;
+            //var json = Json(users,"application/json");
+            var json = JsonConvert.SerializeObject(users, Formatting.None,
+                        new JsonSerializerSettings()
+                        {
+                            ReferenceLoopHandling = ReferenceLoopHandling.Ignore
+                        });
+            //return json.Content;
+
+            return Json(users);
         }
     }
 }

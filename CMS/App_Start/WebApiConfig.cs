@@ -47,7 +47,11 @@ namespace CMS.App_Start
 
             var json = config.Formatters.JsonFormatter;
             config.Formatters.Remove(config.Formatters.XmlFormatter);
-            config.Formatters.OfType<JsonMediaTypeFormatter>().First().SerializerSettings.Formatting = Formatting.Indented;
+            config.Formatters.OfType<JsonMediaTypeFormatter>().First()
+                .SerializerSettings.Formatting = Formatting.Indented;
+            //config.Formatters.OfType<JsonMediaTypeFormatter>().First()
+            //    .SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore;
+
 
         }
     }
