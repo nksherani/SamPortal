@@ -47,7 +47,7 @@ namespace ApiLayer.Controllers
                 ConfirmPassword = model.ConfirmPassword,
                 RoleName = Roles.Editor
             };
-            var BaseUrl = string.Format(ConfigurationManager.AppSettings["AuthBaseUri"].ToString() + "api/Accounts/CreateUser");
+            var BaseUrl = string.Format(ConfigurationManager.AppSettings["AuthBaseUri"].ToString() + "/api/Accounts/CreateUser");
             using (HttpClient httpClient = new HttpClient())
             {
                 HttpResponseMessage result = httpClient.PostAsJsonAsync(BaseUrl, AuthUser).Result;

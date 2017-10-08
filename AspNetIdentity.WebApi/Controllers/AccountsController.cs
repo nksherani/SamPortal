@@ -51,7 +51,7 @@ namespace AspNetIdentity.WebApi.Controllers
 
         }
         [AllowAnonymous]
-        [Route("create")]
+        [Route("CreateUser")]
         public async Task<IHttpActionResult> CreateUser(CreateUserBindingModel createUserModel)
         {
             if (!ModelState.IsValid)
