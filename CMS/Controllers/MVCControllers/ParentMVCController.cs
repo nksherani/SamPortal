@@ -16,7 +16,7 @@ namespace CMS.Controllers.MVCControllers
             {
                 _userSession = userSession;
             }
-            catch (Exception ex) { }
+            catch (Exception) { }
         }
         
     }

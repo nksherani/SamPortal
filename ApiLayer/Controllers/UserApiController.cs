@@ -43,6 +43,9 @@ namespace ApiLayer.Controllers
             {
                 Username = model.Username,
                 Email = model.Email,
+                FirstName=model.FirstName,
+                LastName=model.LastName,
+                MiddleName=model.MiddleName,
                 Password = model.Password,
                 ConfirmPassword = model.ConfirmPassword,
                 RoleName = Roles.Editor

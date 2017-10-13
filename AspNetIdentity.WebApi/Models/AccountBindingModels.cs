@@ -6,7 +6,7 @@ using System.Web;
 
 namespace AspNetIdentity.WebApi.Models
 {
-    public class CreateUserBindingModel
+    public class CreateUserBindingModel_old
     {
         [Required]
         [EmailAddress]
@@ -39,7 +39,7 @@ namespace AspNetIdentity.WebApi.Models
         public string ConfirmPassword { get; set; }
     }
 
-    public class ChangePasswordBindingModel
+    public class ChangePasswordBindingModel_old
     {
         [Required]
         [DataType(DataType.Password)]

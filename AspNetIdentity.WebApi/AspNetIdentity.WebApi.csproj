@@ -167,9 +167,9 @@
     <Compile Include="Infrastructure\ApplicationRoleManager.cs" />
     <Compile Include="Infrastructure\ApplicationUser.cs" />
     <Compile Include="Infrastructure\ApplicationUserManager.cs" />
-    <Compile Include="Migrations\201709210756026_InitialCreate.cs" />
-    <Compile Include="Migrations\201709210756026_InitialCreate.Designer.cs">
-      <DependentUpon>201709210756026_InitialCreate.cs</DependentUpon>
+    <Compile Include="Migrations\201710132145542_InitialCreate.cs" />
+    <Compile Include="Migrations\201710132145542_InitialCreate.Designer.cs">
+      <DependentUpon>201710132145542_InitialCreate.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountBindingModels.cs" />
@@ -182,11 +182,16 @@
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201709210756026_InitialCreate.resx">
-      <DependentUpon>201709210756026_InitialCreate.cs</DependentUpon>
+    <ProjectReference Include="..\ViewModels\ViewModels.csproj">
+      <Project>{AD23BE94-03E2-4978-AA0E-876AC19FD0D0}</Project>
+      <Name>ViewModels</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201710132145542_InitialCreate.resx">
+      <DependentUpon>201710132145542_InitialCreate.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
-  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

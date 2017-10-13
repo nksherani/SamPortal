@@ -6,7 +6,7 @@ using System.Web;
 
 namespace ApiLayer.Models
 {
-    public class CreateUserBindingModel
+    public class CreateUserBindingModel_old
     {
         [Required]
         [EmailAddress]
@@ -41,7 +41,7 @@ namespace ApiLayer.Models
         public string ConfirmPassword { get; set; }
     }
 
-    public class ChangePasswordBindingModel
+    public class ChangePasswordBindingModel_old
     {
         [Required]
         [DataType(DataType.Password)]

@@ -17,11 +17,12 @@ namespace ViewModels.Models
         [Display(Name = "Username")]
         public string Username { get; set; }
 
-        [Required]
         [Display(Name = "First Name")]
         public string FirstName { get; set; }
 
-        [Required]
+        [Display(Name = "Middle Name")]
+        public string MiddleName { get; set; }
+
         [Display(Name = "Last Name")]
         public string LastName { get; set; }
 

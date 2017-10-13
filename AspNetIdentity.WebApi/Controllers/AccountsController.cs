@@ -8,6 +8,7 @@ using System.Net;
 using System.Net.Http;
 using System.Threading.Tasks;
 using System.Web.Http;
+using ViewModels.Models;
 
 namespace AspNetIdentity.WebApi.Controllers
 {
@@ -63,10 +64,22 @@ namespace AspNetIdentity.WebApi.Controllers
             {
                 UserName = createUserModel.Username,
                 Email = createUserModel.Email,
+                EmailConfirmed = true,
                 FirstName = createUserModel.FirstName,
                 LastName = createUserModel.LastName,
-                Level = 3,
-                JoinDate = DateTime.Now.Date,
+                Level = 1,
+                JoinDate = DateTime.Now.AddYears(-3)
+            };
+
+            var user2 = new ApplicationUser()
+            {
+                UserName = "SuperPowerUser1",
+                Email = "taiseer1.joudeh@gmail.com",
+                EmailConfirmed = true,
+                FirstName = "Taiseer",
+                LastName = "Joudeh",
+                Level = 1,
+                JoinDate = DateTime.Now.AddYears(-3)
             };
 
             IdentityResult addUserResult = await this.AppUserManager.CreateAsync(user, createUserModel.Password);
