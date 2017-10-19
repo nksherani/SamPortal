@@ -64,24 +64,10 @@ namespace AspNetIdentity.WebApi.Controllers
             {
                 UserName = createUserModel.Username,
                 Email = createUserModel.Email,
-                EmailConfirmed = true,
-                FirstName = createUserModel.FirstName,
-                LastName = createUserModel.LastName,
-                Level = 1,
-                JoinDate = DateTime.Now.AddYears(-3)
+                EmailConfirmed = true
             };
 
-            var user2 = new ApplicationUser()
-            {
-                UserName = "SuperPowerUser1",
-                Email = "taiseer1.joudeh@gmail.com",
-                EmailConfirmed = true,
-                FirstName = "Taiseer",
-                LastName = "Joudeh",
-                Level = 1,
-                JoinDate = DateTime.Now.AddYears(-3)
-            };
-
+            
             IdentityResult addUserResult = await this.AppUserManager.CreateAsync(user, createUserModel.Password);
 
             if (!addUserResult.Succeeded)
@@ -89,15 +75,18 @@ namespace AspNetIdentity.WebApi.Controllers
                 return GetErrorResult(addUserResult);
             }
 
-
-            string code = await this.AppUserManager.GenerateEmailConfirmationTokenAsync(user.Id);
-
-            var callbackUrl = new Uri(Url.Link("ConfirmEmailRoute", new { userId = user.Id, code = code }));
-
-            await this.AppUserManager.SendEmailAsync(user.Id, "Confirm your account", "Please confirm your account by clicking <a href=\"" + callbackUrl + "\">here</a>");
-
+            //following code should be executed for email confirmation
+            //string code = await this.AppUserManager.GenerateEmailConfirmationTokenAsync(user.Id);
+            //var callbackUrl = new Uri(Url.Link("ConfirmEmailRoute", new { userId = user.Id, code = code }));
+            //await this.AppUserManager.SendEmailAsync(user.Id, "Confirm your account", "Please confirm your account by clicking <a href=\"" + callbackUrl + "\">here</a>");
             Uri locationHeader = new Uri(Url.Link("GetUserById", new { id = user.Id }));
-
+            string[] roles = { ViewModels.Roles.DefaultRole };
+            IdentityResult assignRoleResult = this.AppUserManager.AddToRole(user.Id, ViewModels.Roles.DefaultRole);
+            //Task<IHttpActionResult> result =  AssignRolesToUser(user.Id, roles);
+            if(!assignRoleResult.Succeeded)
+            {
+                return BadRequest(ViewModels.Errors.ROLE_ASSIGNMENT);
+            }
             return Created(locationHeader, TheModelFactory.Create(user));
 
         }

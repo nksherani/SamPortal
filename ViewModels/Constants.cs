@@ -10,5 +10,12 @@ namespace ViewModels
     {
         public static string Admin = "Admin";
         public static string Editor = "Editor";
+        public static string DefaultRole = "Editor";
     }
+    public static class Errors
+    {
+        public static string ROLE_ASSIGNMENT = "Role assignment to the user is failed";
+    }
+    
+
 }

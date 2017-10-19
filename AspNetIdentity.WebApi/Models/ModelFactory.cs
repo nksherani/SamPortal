@@ -27,11 +27,11 @@ namespace AspNetIdentity.WebApi.Models
                 Url = _UrlHelper.Link("GetUserById", new { id = appUser.Id }),
                 Id = appUser.Id,
                 UserName = appUser.UserName,
-                FullName = string.Format("{0} {1}", appUser.FirstName, appUser.LastName),
+                //FullName = string.Format("{0} {1}", appUser.FirstName, appUser.LastName),
                 Email = appUser.Email,
                 EmailConfirmed = appUser.EmailConfirmed,
-                Level = appUser.Level,
-                JoinDate = appUser.JoinDate,
+                //Level = appUser.Level,
+                //JoinDate = appUser.JoinDate,
                 Roles = _AppUserManager.GetRolesAsync(appUser.Id).Result,
                 Claims = _AppUserManager.GetClaimsAsync(appUser.Id).Result
             };
