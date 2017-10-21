@@ -13,10 +13,10 @@ namespace ApiLayer.Controllers
 {
     public class HomeApiController : BaseApiController
     {
-        public List<AddPostViewModel> GetPosts()
+        public List<AddPostViewModel> GetPosts(int PageNo)
         {
             List<POST> Posts = uow.Repository<POST>().GetAll()
-                .OrderByDescending(x => x.Created_Date).Skip(0).Take(10).ToList();
+                .OrderByDescending(x => x.Created_Date).Skip((PageNo-1)* Numbers.PageSize).Take(Numbers.PageSize).ToList();
             List<AddPostViewModel> postModels = new List<AddPostViewModel>();
             foreach(var post in Posts)
             {
@@ -24,6 +24,12 @@ namespace ApiLayer.Controllers
             }
             
             return postModels;
+        }
+        public int GetPagesCount()
+        {
+            var count = uow.Repository<POST>().GetAll().Count();
+            var PageSize = Numbers.PageSize;
+            return count / PageSize + count % PageSize;
         }
     }
 }

@@ -19,13 +19,17 @@ namespace CMS.Controllers.MVCControllers
         public HomeController(IUserSession userSession):base(userSession){}
 
         // GET: Home
-        public ActionResult Index()
+        public ActionResult Index(int PageNo = 1)
         {
             ViewBag.Username = _userSession.Username;
             ViewBag.AccessToken = _userSession.BearerToken;
-            var posts = new HomeApiController().GetPosts();
+            var posts = new HomeApiController().GetPosts(PageNo);
             //(AddPostViewModel)
             return View(posts);
+        }
+        public int GetPagesCount()
+        {
+            return new HomeApiController().GetPagesCount();
         }
     }
 

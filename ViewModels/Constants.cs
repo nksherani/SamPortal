@@ -17,5 +17,9 @@ namespace ViewModels
         public static string ROLE_ASSIGNMENT = "Role assignment to the user is failed";
     }
     
+    public static class Numbers
+    {
+        public static int PageSize=2;
+    }
 
 }

@@ -14,12 +14,13 @@
 </head>
     <body>
         
-        <div style="float:left">
+        <div style="float:left;">
             @Html.Action("SetMenu", "Shared")
             @(Html.Kendo().Menu()
       .Name("menu")
       .BindTo("SamMap")
       .SecurityTrimming(s => s.HideParent(true))
+      .HtmlAttributes(new { @style="font-size:small;padding:0;margin:0"})
             )
         </div>
         <div style="float:right">

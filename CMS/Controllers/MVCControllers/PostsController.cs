@@ -23,6 +23,7 @@ namespace CMS.Controllers.MVCControllers
             {
                 return View();
             }
+            post.Body = "<div>" + post.Body + "</div>";
             var PostId = new PostsApiController().NewPost(post);
             return View();
         }

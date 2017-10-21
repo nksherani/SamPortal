@@ -1,11 +1,59 @@
 ﻿@model List<ViewModels.Models.AddPostViewModel>
 @{
     ViewBag.Title = "Home Page";
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery-expander/1.7.0/jquery.expander.js"></script>
+    <script type="text/javascript">
+        $(function () {
+            $('p.readmore+div').expander({
+                slicePoint: 100,
+                expandText: 'Click Here to Read More',
+                userCollapseText: 'Hide Text'
+            });
+
+
+            $.ajax({
+                url: '@Url.Action("GetPagesCount", "Home")',
+                type: "GET",
+                //contentType: "application/json;charset=utf-8",
+                success: function (result) {
+                    debugger;
+                    var str = "";
+                    for(var i = 1;i<=result;i++)
+                    {
+                        str += "<p class='pages' id=p" + i + "><a href=../Home/Index?PageNo="+i+">" + i + "</a></p>";
+                    }
+                    $('#Pages').html(str);
+                    //window.location = "../CustomerManagement/EditCustomers?action=added&id=" + JSON.stringify(result, null, 4)
+                },
+                error: function (result) {
+
+                    return false;
+                },
+                complete: function () {
+                    //alert('success');
+                    return false;
+                }
+            });
+        });
+    </script>
+    <style>
+    .pages {
+    float:left;
+    background-color:darkgray;
+    margin:5px;
+    padding:5px;
+}
+    </style>
 }
 @{foreach (var post in Model)
     {
-        <p>@post.Title</p>
-        <p>@post.Body</p>
+        <h2 class="header">@post.Title</h2>
+        <p>@post.CreatedBy</p>
+        <p>@post.CreatedDate.ToLongDateString()</p>
+
+        HtmlString msg = new HtmlString(post.Body);
+        <p class="readmore">@msg</p>
         }
     }
-<p></p>
+
+<p id="Pages"></p>
