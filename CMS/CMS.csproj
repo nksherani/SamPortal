@@ -195,6 +195,7 @@
     <Compile Include="Controllers\MVCControllers\AccountController.cs" />
     <Compile Include="Controllers\MVCControllers\HomeController.cs" />
     <Compile Include="Controllers\MVCControllers\ParentMVCController.cs" />
+    <Compile Include="Controllers\MVCControllers\PostsController.cs" />
     <Compile Include="Controllers\MVCControllers\SharedController.cs" />
     <Compile Include="Controllers\MVCControllers\TestController.cs" />
     <Compile Include="Controllers\MVCControllers\UserController.cs" />
@@ -943,6 +944,7 @@
     <Content Include="Views\User\AddUser.cshtml" />
     <Content Include="Views\User\Users.cshtml" />
     <Content Include="Views\Account\Login.cshtml" />
+    <Content Include="Views\Posts\NewPost.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\Site.css" />
@@ -965,6 +967,10 @@
     <ProjectReference Include="..\AspNetIdentity.WebApi\AspNetIdentity.WebApi.csproj">
       <Project>{92c1ef80-4141-40d4-9878-be54e723fb2f}</Project>
       <Name>AspNetIdentity.WebApi</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DataLayer\DataLayer.csproj">
+      <Project>{BE7157A3-FDD9-42F2-AAA3-F33F9F111174}</Project>
+      <Name>DataLayer</Name>
     </ProjectReference>
     <ProjectReference Include="..\ViewModels\ViewModels.csproj">
       <Project>{ad23be94-03e2-4978-aa0e-876ac19fd0d0}</Project>

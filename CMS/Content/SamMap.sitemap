@@ -6,6 +6,9 @@
       <siteMapNode title="All Users" controller="User" action="Users"/>
       <siteMapNode title="Add User" controller="User" action="AddUser"/>
     </siteMapNode>
+    <siteMapNode title="Posts">
+      <siteMapNode title="Add New Post" controller="Posts" action="NewPost"/>
+    </siteMapNode>
     <!--<siteMapNode title="Login" controller="Account" action="Login"/>
     <siteMapNode title="Logout" controller="Account" action="Logout"/-->>
   </siteMapNode>

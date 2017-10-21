@@ -26,5 +26,6 @@ namespace DataLayer
         }
     
         public virtual DbSet<USER> USERS { get; set; }
+        public virtual DbSet<POST> POSTS { get; set; }
     }
 }

@@ -8,12 +8,13 @@ using System.Net;
 using System.Net.Http;
 using System.Web.Http;
 using Microsoft.AspNet.Identity.Owin;
+using DataLayer.Repository;
 
 namespace ApiLayer.Controllers
 {
     public class BaseApiController : ApiController
     {
-
+        protected UnitOfWork uow = new UnitOfWork();
         private ModelFactory _modelFactory;
         private ApplicationUserManager _AppUserManager = null;
 

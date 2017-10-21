@@ -19,7 +19,7 @@ namespace ApiLayer.Controllers
 {
     public class UserApiController : BaseApiController
     {
-        UnitOfWork uow = new UnitOfWork();
+        //UnitOfWork uow = new UnitOfWork();
         // GET: UserApi
         public DataSourceResult GetAllUsers([DataSourceRequest] DataSourceRequest request)
         {

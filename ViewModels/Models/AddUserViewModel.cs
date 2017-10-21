@@ -50,10 +50,10 @@ namespace ViewModels.Models
         [MaxLength(100)]
         public string CreatedBy { get; set; }
 
-        public Nullable<System.DateTime> LastUpdated_Date { get; set; }
+        public Nullable<System.DateTime> LastUpdatedDate { get; set; }
 
         [MaxLength(100)]
-        public string LastUpdated_By { get; set; }
+        public string LastUpdatedBy { get; set; }
 
         public Nullable<System.DateTime> DateOfBirth { get; set; }
 

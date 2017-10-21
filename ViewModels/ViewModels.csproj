@@ -46,8 +46,9 @@
     <Compile Include="Constants.cs" />
     <Compile Include="ModelMapper.cs" />
     <Compile Include="Models\AccountBindingModels.cs" />
+    <Compile Include="Models\AddPostViewModel.cs" />
     <Compile Include="Models\LoginModel.cs" />
-    <Compile Include="Models\UserViewModel.cs" />
+    <Compile Include="Models\AddUserViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

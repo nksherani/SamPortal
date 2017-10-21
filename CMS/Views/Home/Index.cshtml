@@ -1,3 +1,11 @@
-﻿@{
+﻿@model List<ViewModels.Models.AddPostViewModel>
+@{
     ViewBag.Title = "Home Page";
 }
+@{foreach (var post in Model)
+    {
+        <p>@post.Title</p>
+        <p>@post.Body</p>
+        }
+    }
+<p></p>
