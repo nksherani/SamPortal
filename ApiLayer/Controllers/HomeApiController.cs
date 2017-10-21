@@ -29,7 +29,7 @@ namespace ApiLayer.Controllers
         {
             var count = uow.Repository<POST>().GetAll().Count();
             var PageSize = Numbers.PageSize;
-            return count / PageSize + count % PageSize;
+            return (count / PageSize) + (count % PageSize>0?1:0);
         }
     }
 }

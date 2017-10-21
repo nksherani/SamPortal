@@ -19,7 +19,7 @@ namespace ViewModels
     
     public static class Numbers
     {
-        public static int PageSize=2;
+        public static int PageSize=5;
     }
 
 }
